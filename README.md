@@ -16,7 +16,7 @@ https://github.com/circleci/gilded-rose-kata
 ## Trello Board
 
 Created Trello Board to document user stories, process/task breakdown:
-
+https://trello.com/b/mea8o6rX/gilded-rose-kata-js-jasmine
 
 ## File/Function Structure
 
