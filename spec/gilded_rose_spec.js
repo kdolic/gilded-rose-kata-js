@@ -31,4 +31,13 @@ describe("Aged Brie", function() {
   });
 });
 
+describe("Sulfurus (Legendary Item)", function() {
+  it("never has to be sold or decreases in Quality", function() {
+    items = [new Item("Sulfuras, Hand of Ragnaros", 0, 80)];
+    update_quality();
+    expect(items[0].sell_in).toBe(0);
+    expect(items[0].quality).toBe(80);
+  });
+});
+
 });
