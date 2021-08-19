@@ -40,4 +40,33 @@ describe("Sulfurus (Legendary Item)", function() {
   });
 });
 
+describe("Backstage passes", function() {
+  it("increases in Quality as its SellIn value approaches", function() {
+    items = [new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)];
+    update_quality();
+    expect(items[0].sell_in).toBe(14);
+    expect(items[0].quality).toBe(21);
+  });
+
+  it("increases in Quality by 2 when there are 10 days or less", function() {
+    items = [new Item("Backstage passes to a TAFKAL80ETC concert", 10, 2)];
+    update_quality();
+    expect(items[0].sell_in).toBe(9);
+    expect(items[0].quality).toBe(4);
+  });
+
+  it("increases in Quality by 3 when there are 5 days or less", function() {
+    items = [new Item("Backstage passes to a TAFKAL80ETC concert", 5, 7)];
+    update_quality();
+    expect(items[0].sell_in).toBe(4);
+    expect(items[0].quality).toBe(10);
+  });
+  
+  it("drops to 0 Quality after the concert", function() {
+    items = [new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40)];
+    update_quality();
+    expect(items[0].sell_in).toBe(-1);
+    expect(items[0].quality).toBe(0);
+  });
+});
 });
