@@ -69,4 +69,13 @@ describe("Backstage passes", function() {
     expect(items[0].quality).toBe(0);
   });
 });
+
+describe("Conjured Item", function() {
+  it("degrades in Quality twice as fast as normal items", function() {
+    items = [new Item("Conjured Mana Cake", 3, 6)];
+    update_quality();
+    expect(items[0].sell_in).toBe(2);
+    expect(items[0].quality).toBe(5);
+  });
+});
 });
